@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Page</title>
+</head>
+
+<body>
+    <h1>Create a new Page</h1>
+    <form action="{% url 'editted' %}" method="POST">
+        {% csrf_token %}
+        <label for="Title">Title</label>
+        {% if Entry_used %}
+        <br>
+        {{ Entry_used }}
+        {% endif %}
+        <br>
+        <input type="text" name="Title" placeholder="Input a title">
+        <br><br>
+        <label for="Content">Content</label>
+        <br>
+        <textarea name="Content" id="" cols="30" rows="10" placeholder="Enter Content"></textarea>
+        <br><br>
+        <input type="submit" value="Save Content">
+    </form>
+</body>
+
+</html>
